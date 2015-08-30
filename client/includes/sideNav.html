@@ -1,0 +1,11 @@
+<template name ="sideNav">
+
+<ul class="side-nav" id="nav-mobile" >
+			  <li class="{{currentRoute 'dashboard'}}"><a href="{{pathFor 'index'}}">DASHBOARD</a></li>
+			  <li class="{{currentRoute 'leads'}}"><a href="{{pathFor 'leads'}}">LEADS</a></li>
+			  <li class="{{currentRoute 'inventory'}}"><a href="{{pathFor 'inventory'}}">INVENTORY</a></li>
+			  <li class="{{currentRoute 'customers'}}"><a href="{{pathFor 'customers'}}">CUSTOMERS</a></li>
+	          <li class="logout"><a href="#">Logout</a></li>
+	          </ul>
+			
+</template> 
