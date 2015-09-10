@@ -1,7 +1,8 @@
 <template name ="applications">
 	<div class="row">
-	<div class="container col s12 m4">
-	 <div class="collection with-header z-depth-1">
+		<div class="container">
+	<div id="leftSide" class="container col s12 m4">
+	 <div class="collection with-header z-depth-2">
 	<div class="collection-header">
 		 <form>
         <div class="input-field">
@@ -10,70 +11,153 @@
         </div>
       </form>
   </div>
+	<div class="collection-body" style="overflow-y:scroll; height:400px;">
 	{{#each appData}}
-		 <a href="#_id:{{_id}}"  class="collection-item "><strong>{{personal.firstName}} {{personal.lastName}}</strong><i class="secondary-content material-icons">chevron_right</i></a>
+		 <a href="#_id:{{_id}}"  class="collection-item "><span class="capitalized">{{personal.firstName}} {{personal.lastName}}</span><i class="secondary-content material-icons">chevron_right</i></a>
 		 {{/each}}
 		</div>
 	</div>
-	<div class="container col s12 m6 offset-m1 z-depth-2">
+			</div>	
 		{{#with appDetail}}
+		
+	<div class="container col s12 m6 offset-m1 z-depth-2">
+		
 
 	<div class="left container"><h4 >Credit Application</h4></div>
 		<div class="clear"></div>
+		
+		
+		
+	<div  id="first_col" class="col s6">
 		<h5 col s12>Personal Info</h5>
-	<div class="col s6">
-	
-		<div class="clear"></div>
 		 <div class="divider"></div>
-	<p><strong>Name:</strong> {{personal.firstName}} {{personal.lastName}}</p>	
+	<p><strong>Name:</strong> <span clas="capitalized">{{personal.firstName}} {{personal.lastName}}</span></p>	
 	<p><strong>Home Phone:</strong> {{personal.Phone.home}} </p>
 	<p><strong>Social:</strong> {{personal.Social}}</p>
-	<h5>Residence Info</h5>
+	
+		
+		<h5>Residence Info</h5>
 		 <div class="divider"></div>
 	<p> <strong>Current Address:</strong> {{Residence.street}}</p>
-	<p>{{Residence.city}}, SC {{Residence.zip}}</p>
-	<h5>Employment Info</h5>
+		<p><span style="margin-left:118px">{{Residence.city}}, SC</span></p>
+	    <p><span style="margin-left:118px">{{Residence.zip}}</span></p>
+		
+		<h5>Employment Info</h5>
 		<div class="divider"></div>
 		<p><strong>Current Employer:</strong> {{employment.Employer}}</p>
-	<p><strong>Down Payment:</strong> {{credit.moneyDown}}</p>
+		<p><strong>Job Address:</strong> {{employment.address.street}}</p>
+		<p><span style="margin-left:131px">{{employment.address.city}}, SC </span></p>
+		<p><span style="margin-left:131px">{{employment.address.zip}}</span></p>
+		<h5>Credit Info</h5>
+		<div class="divider"></div>
+		<p><strong>Monthly Income:</strong> {{credit.Income}}</p>
+	    <p><strong>Down Payment:</strong> {{credit.moneyDown}}</p>
 	
 		</div>
-	<div class="col s5">
-	<div class="container second_column">
-	 	<br>
-	<div class="clear"></div>
-	<div class="divider"></div>
+	<div class="col s6">
+	<div id="personalInfo" class="divider"></div>
 	<p><strong>Email:</strong> {{personal.email}}</p>	
 	<p><strong>Cell Phone:</strong> {{personal.Phone.cell}}</p>
 	<p><strong>D.O.B:</strong> {{dateOfBirth}} </p>
-	<p><strong>Referral Source:</strong> {{credit.referral}}   </p>
-		<br>
-	<div class="divider"></div>
+	
+	
+	<div id="residenceInfo"  class="divider"></div>
 		<p><strong>Years @ Address:</strong> {{Residence.duration}}</p>
 	<p><strong>Own/Rent:</strong> {{Residence.residenceType}}</p>
 	<p><strong>Rent/Mortgage Amt: </strong>{{Residence.rent}}</p>
 		<br>
-	 	<div class="divider"></div>
+	 	<div id="employmentInfo" class="divider"></div>
+	<p><strong>Phone:</strong> {{employment.Phone}}</p>	
 	<p><strong>Title:</strong> {{employment.Title}}</p>
-	<p><strong>Monthly Income:</strong> {{credit.Income}}</p>
 	<p><strong>Years @ Job:</strong> {{employment.duration}}</p>
-		</div>
+	
+	<div id="creditInfo" class="divider"></div>
+	<p><strong>Referral Source:</strong> {{credit.referral}}   </p>
 		</div>
 		
-<div class="fixed-action-btn col s2 right"  style="bottom: 15px; margin-right:-50px; position:relative;">
-    <a class="btn-floating btn-large amber darken-3">
+<div class="fixed-action-btn col s2 right"  style="margin-top:30px; margin-right:-50px; position:relative;">
+    <a class="btn-floating btn-large cyan darken-4">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+	  {{# if adminCheck}}<li><a class="btn-floating red"><i class="material-icons">delete</i></a></li>{{/if}}
+      <li><a class="btn-floating green"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow"><i class="material-icons">print</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
+		
+</div>	
+		{{else}}
+			<div class="container col s12 m6 offset-m1 z-depth-1">
+		
+
+	<div class="left container"><h4 >Credit Application</h4></div>
+		<div class="clear"></div>
+		
+		
+		
+	<div  id="first_col" class="col s6">
+		<h5 col s12>Personal Info</h5>
+		 <div class="divider"></div>
+	<p><strong>Name:</strong> </p>	
+	<p><strong>Home Phone:</strong>  </p>
+	<p><strong>Social:</strong> </p>
+	
+		
+		<h5>Residence Info</h5>
+		 <div class="divider"></div>
+	<p> <strong>Current Address:</strong></p>
+		<p><span style="margin-left:118px"></span></p>
+	    <p><span style="margin-left:118px"></span></p>
+		
+		<h5>Employment Info</h5>
+		<div class="divider"></div>
+		<p><strong>Current Employer:</strong></p>
+		<p><strong>Job Address:</strong> </p>
+		<p><span style="margin-left:131px"></span></p>
+		<p><span style="margin-left:131px"></span></p>
+		<h5>Credit Info</h5>
+		<div class="divider"></div>
+		<p><strong>Monthly Income:</strong></p>
+	    <p><strong>Down Payment:</strong> </p>
+	
+		</div>
+	<div class="col s6">
+	<div id="personalInfo" class="divider"></div>
+	<p><strong>Email:</strong> </p>	
+	<p><strong>Cell Phone:</strong></p>
+	<p><strong>D.O.B:</strong> </p>
+	
+	
+	<div id="residenceInfo"  class="divider"></div>
+		<p><strong>Years @ Address:</strong></p>
+	<p><strong>Own/Rent:</strong> </p>
+	<p><strong>Rent/Mortgage Amt: </strong></p>
+		<br>
+	 	<div id="employmentInfo" class="divider"></div>
+	<p><strong>Phone:</strong></p>	
+	<p><strong>Title:</strong></p>
+	<p><strong>Years @ Job:</strong></p>
+	
+	<div id="creditInfo" class="divider"></div>
+	<p><strong>Referral Source:</strong>  </p>
+		</div>
+		
+<div class="fixed-action-btn col s2 right"  style="margin-top:30px; margin-right:-50px; position:relative;">
+    <a class="btn-floating btn-large cyan darken-4">
       <i class="large material-icons">mode_edit</i>
     </a>
     <ul>
       <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">print</i></a></li>
       <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
     </ul>
   </div>
-			{{/with}}
-</div>	
 			
+</div>	
+		{{/with}}
 	</div>
+		</div>
 </template>
               

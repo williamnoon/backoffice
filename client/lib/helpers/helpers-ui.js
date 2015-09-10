@@ -10,6 +10,8 @@
 * to the helper in the template.
 */
 
+   
+
 
 	 UI.registerHelper('currentRoute', function(route){
   return Session.equals('currentRoute', route) ? 'active' : '';
@@ -35,15 +37,6 @@
 }
 		} );
 
-
-
-
-
-// Use UI.registerHelper..
-
-
-    // dynamically set the data context.
-    
-
-    // clear the dynamic template
-	
+UI.registerHelper('toTitleCase', function(str){
+	 return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+});

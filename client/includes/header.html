@@ -1,8 +1,8 @@
 <template name="header">
 	<head> <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></head>
-	<nav class=" amber darken-3" role="navigation">
+	<nav class=" cyan darken-4" role="navigation">
 	    <div class="nav-wrapper container">
-	      <a class="brand-logo left"  style="font-style:light-italic;" href="{{pathFor 'index'}}">Appchinski</a>
+	      <a class="brand-logo left"  style="font-style:light-italic;" href="{{pathFor 'index'}}">WholeSaleCars.deals</a>
 	   
 	    	{{#if currentUser}}
 			<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -11,7 +11,6 @@
 			  <li class="{{currentRoute 'dashboard'}}"><a href="{{pathFor 'index'}}">DASHBOARD</a></li>
 			  <li class="{{currentRoute 'applications'}}"><a href="{{pathFor 'applications'}}">APPLICATIONS</a></li>
 			  <li class="{{currentRoute 'trades'}}"><a href="{{pathFor 'trades'}}">TRADE-INS</a></li>
-			  <li class="{{currentRoute 'vehicles4sale'}}"><a href="{{pathFor 'vehicles4sale'}}">VEHICLES 4 SALE</a></li>
 			  <li class="{{currentRoute 'inventory'}}"><a href="{{pathFor 'inventory'}}" class="disabled">INVENTORY</a></li>
 			  <li class="{{currentRoute 'customers'}}"><a href="{{pathFor 'customers'}}" class="disabled">CUSTOMERS</a></li>
 			  <li class="dropdown">

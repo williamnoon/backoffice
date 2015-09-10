@@ -17,12 +17,14 @@ accounts-base
 check
 audit-argument-checks
 iron:router
-meteorhacks:npm
+aldeed:simple-schema
+aldeed:collection2
+aldeed:autoform
+forwarder:autoform-wizard
+meteorhacks:fast-render
+forwarder:autoform-wizard-iron-router
 
 
 themeteorchef:bert
-meteorhacks:ssr
-reactive-dict
-iron:dynamic-template
 momentjs:moment
 materialize:materialize

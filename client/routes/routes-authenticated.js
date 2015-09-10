@@ -62,7 +62,15 @@ Router.route('/customers', {
 });
 
 
-
+Router.route('reset-password', {
+  path: '/reset-password/:token',
+  template: 'resetPassword',
+  onBeforeAction: function() {
+    Session.set('currentRoute', 'reset-password');
+    Session.set('resetPasswordToken', this.params.token);
+    this.next();
+  }
+});
 
 
 
