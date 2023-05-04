@@ -13,7 +13,7 @@ Applicant.prototype = {
   };
 
 
-conn = DDP.connect("www.wholesalecars.deals");
+conn = DDP.connect("http://localhost:3000");
 Applications = new Mongo.Collection("applications");
 Trades = new Mongo.Collection("trades");
 
